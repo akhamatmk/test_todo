@@ -49,7 +49,7 @@
                 <div class="typing"> Type in a new todo...</div>
                 <ul class="list-todo" style="list-style: none;">
                     @foreach($data as $key => $value)
-                    	<li id="list-{{ $value->id }}" onclick="init()"> <input  class="checkbox" type="checkbox" value="{{ $value->id }}" name="checkbox[]"> <span value>{{ $value->task }}</span> <span  data-id="{{ $value->id }}" onclick="init()" class="delete-icon">[X]</span> </li>
+                    	<li id="list-{{ $value->id }}"> <input  class="checkbox" type="checkbox" value="{{ $value->id }}" name="checkbox[]"> <span value>{{ $value->task }}</span> <span  data-id="{{ $value->id }}" class="delete-icon">[X]</span> </li>
                     @endForeach
                 </ul>
                 <div  class="mtop20"> <button class="deleted-selection">Delete Selected</button> </div>
@@ -58,6 +58,7 @@
     </body>
     <script type="text/javascript">
     $( document ).ready(function() {
+    	init();
 	    $("input[name=newTodo]").keyup(function(){
 	    	let val = $(this).val();
 	    	if(val != ""){
